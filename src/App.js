@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            counterValue : 0
+        };
+        this.incrementCounter = this.incrementCounter.bind(this);
+        this.decrementCounter = this.decrementCounter.bind(this);
+    }
+
+    incrementCounter(){
+        this.setState({
+            counterValue: this.state.counterValue + 1
+        });
+    }
+
+    decrementCounter(){
+        this.setState({
+            counterValue: this.state.counterValue - 1
+        });
+    }
+
+    render() {
+        var APP_HEADING = "Counting App";
+        var INCREMENT = "Increment";
+        var DECREMENT = "Decrement";
+        return (
+            <div className="App">
+                <div className="heading">
+                    {APP_HEADING}
+                </div>
+                <div className="count">
+                    {this.state.counterValue}
+                </div>
+                <div className="buttons">
+                    <Button className="increment" onClick={this.incrementCounter}>{INCREMENT}</Button>
+                    <Button className="decrement" onClick={this.decrementCounter}>{DECREMENT}</Button>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
