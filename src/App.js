@@ -6,7 +6,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            counterValue : 0
+            counterValue : 0,
         };
         this.incrementCounter = this.incrementCounter.bind(this);
         this.decrementCounter = this.decrementCounter.bind(this);
@@ -14,13 +14,13 @@ class App extends React.Component {
 
     incrementCounter(){
         this.setState({
-            counterValue: this.state.counterValue + 1
+            counterValue: this.state.counterValue + 1,
         });
     }
 
     decrementCounter(){
         this.setState({
-            counterValue: this.state.counterValue - 1
+            counterValue: this.state.counterValue - 1,
         });
     }
 
